@@ -21,6 +21,13 @@ def classes_query(start, end):
     url = "{}?{}&{}&{}".format(base_url, fields, sort, filter)
     return url
 
+def get_artist(id):
+    """
+    get Artists internal info
+    :param id: str
+    :return:
+    """
+
 def clean_item(item):
     """
     Leave only needed fields from the respsonse
@@ -32,7 +39,7 @@ def clean_item(item):
         "danceStyle": item["fields"]["Name"],
         "duration": item["fields"]["Duration"],
         "dateTime": item["fields"]["DateTime(GMT)"],
-        "artist": [item["fields"]["Artist"]],
+        "artists": [item["fields"]["Artist"]],
         "language": "wip"
     }
 
@@ -49,7 +56,6 @@ def get_all_classes():
     now = datetime.datetime.today().date()
     headers = {"Authorization": 'Bearer keyObNSCXx5PgfhKl'}  # TODO: regenerate API key and add to .env and cicd variables
     resp = {"events":[]}
-
     try:
         for i in range(0, 3):
             raw = requests.get(classes_query(i, i+1), headers=headers).json()['records']
