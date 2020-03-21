@@ -27,6 +27,8 @@ def get_artist(id):
     :param id: str
     :return:
     """
+    pass
+
 
 def clean_item(item):
     """
