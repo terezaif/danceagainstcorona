@@ -1,5 +1,5 @@
 body {
-	font-family: Helvetica;
+	font-family: Courier;
 	color: #204051;
 }
 
@@ -10,9 +10,13 @@ h1 {
 }
 
 h2 {
+	font-family: Helvetica Neue;
 	word-wrap: break-word;
     text-transform: uppercase;
     margin: 0 auto;
     font-size: 130px;
     width: 400px;
+    color: transparent;
+    -webkit-text-stroke: 4px #204051;
+	text-stroke: 4px #204051;
 }

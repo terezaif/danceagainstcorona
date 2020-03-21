@@ -15,7 +15,12 @@ class DanceClassCard extends Component {
 				<div className="time-widget">
 					<div className="time-text">{timeString}</div>
 				</div>
-				{danceClass.danceStyle} with {igHandles}
+				<div className="description">
+					<div className="dance-style">{danceClass.danceStyle}</div>
+					<div>with {igHandles}</div>
+					<div>in {danceClass.language}</div>
+					<div>for {danceClass.duration}</div>
+				</div>
 			</div>
 		);
 	}
