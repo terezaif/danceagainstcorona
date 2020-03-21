@@ -36,6 +36,10 @@ def clean_item(item):
         "language": "wip"
     }
 
+@app.route('/')
+def main():
+    return jsonify({"Message": "Hello!"})
+
 @app.route('/v1/all_classes')
 def get_all_classes():
     """
