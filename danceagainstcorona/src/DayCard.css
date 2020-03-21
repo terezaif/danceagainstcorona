@@ -1,7 +1,15 @@
 .daycard {
 	min-height: 400px;
-	background-color: #ecdfc8;
 	overflow: auto;
+	background-color: #df7861;
+}
+
+.daycard:nth-child(2) {
+	background-color: #ecdfc8;
+}
+
+.daycard:nth-child(3) {
+	background-color: #ecb390;
 }
 
 .dance-class-cards {
@@ -11,6 +19,7 @@
     padding: 5% 0;
     border-left: 1px dashed;
 }
+
 
 .day-widget {
 	float: left;
