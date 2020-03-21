@@ -44,6 +44,19 @@ class App extends Component {
             dateTime: "2020-03-21T18:00:00.000Z",
             language: "DE / EN",
           },
+          {
+            id: "bc",
+            danceStyle: "K-Pop",
+            duration: "1 hour",
+            artists: [
+                {
+                  name: "Zoe",
+                  instagram: "@satan_channn",
+                },
+            ],
+            dateTime: "2020-03-21T13:00:00.000Z",
+            language: "DE",
+          },
         ]
       }
     ];

@@ -17,3 +17,20 @@
 .dance-class-card {
 	margin: 30px 0;
 }
+
+.description {
+	margin: 0 50px;
+}
+
+.dance-style {
+	border-bottom: 1px dashed;
+	margin: 10px 0;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .dance-class-card {
+    margin-left: 20px;
+  }
+}
