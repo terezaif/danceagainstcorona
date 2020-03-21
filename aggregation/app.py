@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify
 import requests
 import datetime
 from dateutil.relativedelta import relativedelta
@@ -17,7 +17,7 @@ def classes_query(start, end):
     sort = "sortfield=DateTime(GMT)&sortdirection=asc"
     filter_before = "IS_BEFORE({{DateTime(GMT)}}, DATEADD(NOW(), {0}, 'days'))".format(end)
     filter = "filterByFormula=AND(IS_AFTER({{DateTime(GMT)}}, DATEADD(NOW(), {1}, 'days')), {0})".format(filter_before, start)
-    url = f"{base_url}?{fields}&{sort}&{filter}"
+    url = "{}?{}&{}&{}".format(base_url, fields, sort, filter)
     return url
 
 def clean_item(item):
@@ -42,7 +42,7 @@ def get_all_classes():
     :return: JsonResponse
     """
     now = datetime.datetime.today().date()
-    headers = {"Authorization": f'Bearer {"keyObNSCXx5PgfhKl"}'}  # TODO: regenerate API key and add to .env and cicd variables
+    headers = {"Authorization": 'Bearer keyObNSCXx5PgfhKl'}  # TODO: regenerate API key and add to .env and cicd variables
     resp = {"events":[]}
 
     try:
