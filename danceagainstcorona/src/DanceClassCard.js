@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import "./DanceClassCard.css"
+
 class DanceClassCard extends Component {
 	render() {
 		const danceClass = this.props;
@@ -9,8 +11,11 @@ class DanceClassCard extends Component {
 		const igHandles = artists.map(artist => artist.instagram).join(", ");
 
 		return (
-			<div>
-				{timeString}: {danceClass.danceStyle} with {igHandles}
+			<div className="dance-class-card">
+				<div className="time-widget">
+					<div className="time-text">{timeString}</div>
+				</div>
+				{danceClass.danceStyle} with {igHandles}
 			</div>
 		);
 	}

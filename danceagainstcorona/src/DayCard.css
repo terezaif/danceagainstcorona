@@ -1,0 +1,15 @@
+.daycard {
+	min-height: 400px;
+	background-color: #ecdfc8;
+}
+
+.dance-class-cards {
+	float: right;
+	width: 50%;
+}
+
+.day-widget {
+	float: left;
+	width: 50%;
+	color: #de7119;
+}

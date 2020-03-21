@@ -1,0 +1,19 @@
+.time-widget {
+	background-color: #de7119;
+	height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.time-text {
+	line-height: 70px;
+	font-weight: bold;
+
+}
+
+.dance-class-card {
+	margin: 30px 0;
+}
