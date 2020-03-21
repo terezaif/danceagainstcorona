@@ -5,7 +5,6 @@ from dateutil.relativedelta import relativedelta
 
 app = Flask("danceagainstcorona")
 
-server = app.server
 
 def classes_query(start, end):
     """
@@ -59,4 +58,4 @@ def get_all_classes():
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run()
