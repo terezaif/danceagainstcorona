@@ -20,3 +20,8 @@ h2 {
     -webkit-text-stroke: 4px #204051;
 	text-stroke: 4px #204051;
 }
+
+a {
+	color: #204051;
+	text-decoration: None;
+}

@@ -1,9 +1,22 @@
 .header {
 	height: 700px;
 	background-color: #fcf8e8;
-	text-align: center;
+	overflow: hidden;
+	position: relative;
 }
 
 .textwrap {
-	padding-top: 150px;
+	position: absolute;
+    top: 18%;
+    left: 15%;
+    padding: 45px;
+    text-align: center;
+    background: white;
+	border: 5px #ecb390 solid;
+}
+
+img {
+	height: 120px;
+	display: inline;
+	margin: -10px;
 }
