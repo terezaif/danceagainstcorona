@@ -5,6 +5,8 @@ from dateutil.relativedelta import relativedelta
 
 app = Flask("danceagainstcorona")
 
+server = app.server
+
 def classes_query(start, end):
     """
     Collecting classes for time frame from n
@@ -57,4 +59,4 @@ def get_all_classes():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run_server()
