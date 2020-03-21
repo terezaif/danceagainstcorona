@@ -16,10 +16,11 @@
 
 .dance-class-card {
 	margin: 30px 0;
+	margin-left: 30px;
 }
 
 .description {
-	margin: 0 50px;
+	margin: 0 70px;
 }
 
 .dance-style {
@@ -27,10 +28,4 @@
 	margin: 10px 0;
 	font-weight: bold;
 	text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .dance-class-card {
-    margin-left: 20px;
-  }
 }
