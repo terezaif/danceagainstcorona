@@ -1,5 +1,6 @@
 Flask==1.0.2
-uWSGI==2.0.18
+Flask-Cors==3.0.8
+gunicorn==20.0.4
 requests==2.23.0
 python-dotenv==0.12.0
 python-dateutil==2.8.1

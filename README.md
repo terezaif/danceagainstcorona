@@ -5,7 +5,15 @@ cd danceagainstcorona
 yarn start
 
 
-### Backend aggregation
-(not sure if we want to keep it there tho)
+### The backend
 
-to run locally got to aggregate folder and call: `make run-back`
+## Requirements
+
+`python ^3.7`
+
+## building and running locally
+
+`make setup` to build the environment
+`source env/bin/activate` to active the environment
+`heroku local` to run locally using the vars
+
