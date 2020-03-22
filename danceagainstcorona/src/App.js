@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header.js';
 import DayCard from './DayCard.js';
 import Footer from './Footer.js';
+import Loader from './Loader.js';
 
 import './typography.css';
 import './App.css';
@@ -177,12 +178,18 @@ class App extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <Header />
+          <Loader />
+          <Footer />
+        </div>
+      );
     } else {
       return (
         <div>
           <Header />
-          {events.map(dayData => <DayCard {...dayData} />)}
+          {events.map(dayData => dayData.classes.length ? <DayCard {...dayData} /> : <div></div> )}
           <Footer />
         </div>
       );
