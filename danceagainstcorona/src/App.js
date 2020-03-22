@@ -40,7 +40,9 @@ class App extends Component {
       )
   }
   render() {
-    /*     const classDataByDay = {
+    /*
+        Example data
+        const classDataByDay = {
           events: [
             {
               date: "2020-03-21",
@@ -173,15 +175,20 @@ class App extends Component {
         };
         */
 
-    // const events = classDataByDay.events;
     const { error, isLoaded, events } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return (
+        <div>
+          <Header />
+          <Loader isError={true} />
+          <Footer />
+        </div>
+      );
     } else if (!isLoaded) {
       return (
         <div>
           <Header />
-          <Loader />
+          <Loader isError={false} />
           <Footer />
         </div>
       );
