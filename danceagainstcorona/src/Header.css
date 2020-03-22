@@ -11,7 +11,7 @@
     left: 15%;
     padding: 45px;
     text-align: center;
-    background: white;
+    background: #fcf8e8;
 	border: 5px #ecb390 solid;
 }
 
@@ -19,4 +19,16 @@ img {
 	height: 120px;
 	display: inline;
 	margin: -10px;
+}
+
+@media (max-width: 768px) {
+  .textwrap {
+	padding: 30px;
+  }
+  h1 {
+  	font-size: 50px !important;
+  }
+  img {
+  	height: 100px;
+  }
 }
