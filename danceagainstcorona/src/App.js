@@ -189,7 +189,7 @@ class App extends Component {
       return (
         <div>
           <Header />
-          {events.map(dayData => dayData.classes.length ? <DayCard {...dayData} /> : <div></div> )}
+          {events.map(dayData => dayData.classes.length ? <DayCard key={dayData.date} {...dayData} /> : <div></div> )}
           <Footer />
         </div>
       );
