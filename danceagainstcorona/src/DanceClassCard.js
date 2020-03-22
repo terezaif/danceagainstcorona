@@ -7,7 +7,10 @@ class DanceClassCard extends Component {
 		const danceClass = this.props;
 		const artists = danceClass.artists;
 
-		const timeString = new Date(danceClass.dateTime).toLocaleTimeString().slice(0,-3);
+		const happeningAt = new Date(danceClass.dateTime) //.toLocaleTimeString().slice(0,-3);
+		const minutes = happeningAt.getMinutes();
+		const minutePrefix = minutes > 10 ? '' : '0';
+		const timeString = `${happeningAt.getHours()}:${minutePrefix}${minutes}`;
 		const igHandles = artists.map(artist => artist.instagram).join(", ");
 
 		return (
@@ -27,5 +30,3 @@ class DanceClassCard extends Component {
 }
 
 export default DanceClassCard;
-
-

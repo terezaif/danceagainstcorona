@@ -7,150 +7,183 @@ import './typography.css';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      events: []
+    };
+  }
   componentDidMount() {
     document.title = 'danceagainstcorona';
+    fetch('https://dancebackend.herokuapp.com/v1/all_classes')
+      .then(response => response.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            events: result.events
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
   render() {
-    const classDataByDay = {
-      events: [
-        {
-          date: "2020-03-21",
-          classes: [
+    /*     const classDataByDay = {
+          events: [
             {
-              id: "rec9jwOhOPm0SVBtq",
-              danceStyle: "DanceHall",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "LadyLis",
-                    instagram: "@ladylis_dhclasshh",
-                  },
-              ],
-              dateTime: "2020-03-21T17:00:00.000Z",
-              language: "DE / EN",
+              date: "2020-03-21",
+              classes: [
+                {
+                  id: "rec9jwOhOPm0SVBtq",
+                  danceStyle: "DanceHall",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T17:00:00.000Z",
+                  language: "DE / EN",
+                },
+                {
+                  id: "abc",
+                  danceStyle: "SOCA",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Miss TK",
+                      instagram: "@miss_tk",
+                    },
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T18:00:00.000Z",
+                  language: "DE / EN",
+                },
+                {
+                  id: "bc",
+                  danceStyle: "K-Pop",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Zoe",
+                      instagram: "@satan_channn",
+                    },
+                  ],
+                  dateTime: "2020-03-21T13:00:00.000Z",
+                  language: "DE",
+                },
+              ]
             },
             {
-              id: "abc",
-              danceStyle: "SOCA",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "Miss TK",
-                    instagram: "@miss_tk",
-                  },
-                  {
-                    name: "LadyLis",
-                    instagram: "@ladylis_dhclasshh",
-                  },
-              ],
-              dateTime: "2020-03-21T18:00:00.000Z",
-              language: "DE / EN",
+              date: "2020-03-22",
+              classes: [
+                {
+                  id: "rec9jwOhOPm0SVBtq",
+                  danceStyle: "DanceHall",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T17:00:00.000Z",
+                  language: "DE / EN",
+                },
+                {
+                  id: "abc",
+                  danceStyle: "SOCA",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Miss TK",
+                      instagram: "@miss_tk",
+                    },
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T18:00:00.000Z",
+                  language: "DE / EN",
+                },
+                {
+                  id: "bc",
+                  danceStyle: "K-Pop",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Zoe",
+                      instagram: "@satan_channn",
+                    },
+                  ],
+                  dateTime: "2020-03-21T13:00:00.000Z",
+                  language: "DE",
+                },
+              ]
             },
             {
-              id: "bc",
-              danceStyle: "K-Pop",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "Zoe",
-                    instagram: "@satan_channn",
-                  },
-              ],
-              dateTime: "2020-03-21T13:00:00.000Z",
-              language: "DE",
-            },
+              date: "2020-03-23",
+              classes: [
+                {
+                  id: "rec9jwOhOPm0SVBtq",
+                  danceStyle: "DanceHall",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T17:00:00.000Z",
+                  language: "DE / EN",
+                },
+                {
+                  id: "bc",
+                  danceStyle: "K-Pop",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Zoe",
+                      instagram: "@satan_channn",
+                    },
+                  ],
+                  dateTime: "2020-03-21T13:00:00.000Z",
+                  language: "DE",
+                },
+              ]
+            }
           ]
-        },
-        {
-          date: "2020-03-22",
-          classes: [
-            {
-              id: "rec9jwOhOPm0SVBtq",
-              danceStyle: "DanceHall",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "LadyLis",
-                    instagram: "@ladylis_dhclasshh",
-                  },
-              ],
-              dateTime: "2020-03-21T17:00:00.000Z",
-              language: "DE / EN",
-            },
-            {
-              id: "abc",
-              danceStyle: "SOCA",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "Miss TK",
-                    instagram: "@miss_tk",
-                  },
-                  {
-                    name: "LadyLis",
-                    instagram: "@ladylis_dhclasshh",
-                  },
-              ],
-              dateTime: "2020-03-21T18:00:00.000Z",
-              language: "DE / EN",
-            },
-            {
-              id: "bc",
-              danceStyle: "K-Pop",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "Zoe",
-                    instagram: "@satan_channn",
-                  },
-              ],
-              dateTime: "2020-03-21T13:00:00.000Z",
-              language: "DE",
-            },
-          ]
-        },
-        {
-          date: "2020-03-23",
-          classes: [
-            {
-              id: "rec9jwOhOPm0SVBtq",
-              danceStyle: "DanceHall",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "LadyLis",
-                    instagram: "@ladylis_dhclasshh",
-                  },
-              ],
-              dateTime: "2020-03-21T17:00:00.000Z",
-              language: "DE / EN",
-            },
-            {
-              id: "bc",
-              danceStyle: "K-Pop",
-              duration: "1 hour",
-              artists: [
-                  {
-                    name: "Zoe",
-                    instagram: "@satan_channn",
-                  },
-              ],
-              dateTime: "2020-03-21T13:00:00.000Z",
-              language: "DE",
-            },
-          ]
-        }
-      ]
-    };
-    const events = classDataByDay.events;
-
-    return (
-      <div>
-        <Header />
-        {events.map(dayData => <DayCard {...dayData} /> )}
-        <Footer />
-      </div>
-    );
+        };
+        //const events = classDataByDay.events; */
+    const { error, isLoaded, events } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          <Header />
+          {events.map(dayData => <DayCard {...dayData} />)}
+          <Footer />
+        </div>
+      );
+    }
   }
 }
 

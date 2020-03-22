@@ -1,5 +1,6 @@
 {
   "name": "danceagainstcorona",
+  "short-name": "danceagainstcorona",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
