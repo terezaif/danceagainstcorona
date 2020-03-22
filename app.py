@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 import requests
 import datetime
@@ -5,6 +7,7 @@ from dateutil.relativedelta import relativedelta
 
 app = Flask("danceagainstcorona")
 
+BEARER = os.environ.get('BEARER','add BEARER=... in your .env')
 
 def classes_query(start, end):
     """
@@ -29,7 +32,7 @@ def get_artists(artists_per_class):
     """
     languages = []
     artists = []
-    headers = {"Authorization": 'Bearer keyObNSCXx5PgfhKl'}
+    headers = {"Authorization": 'Bearer {}'.format(BEARER)}
     for a in artists_per_class:
         art = requests.get("https://api.airtable.com/v0/appCVm3JIzNrEHoYA/Artist/{}".format(a),
                                       headers=headers).json()
@@ -71,7 +74,7 @@ def get_all_classes():
     :return: JsonResponse
     """
     now = datetime.datetime.today().date()
-    headers = {"Authorization": 'Bearer keyObNSCXx5PgfhKl'}  # TODO: regenerate API key and add to .env and cicd variables
+    headers = {"Authorization": 'Bearer {}'.format(BEARER)}  # TODO: regenerate API key and add to .env and cicd variables
     resp = {"events":[]}
     try:
         for i in range(0, 3):

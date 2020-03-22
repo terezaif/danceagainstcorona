@@ -146,3 +146,8 @@ cython_debug/
 # static files generated from Django application using `collectstatic`
 media
 static
+
+#env stuff
+env/
+.env
+.DS_Store
