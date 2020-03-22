@@ -1,7 +1,7 @@
 .footer {
 	overflow: auto;
 	clear: both;
-	height: 650px;
+	height: 700px;
 	background-color: #fcf8e8;
 	position: relative;
 }
@@ -23,7 +23,7 @@
 	height: 200px;
 	width: 250px;
 	position: absolute;
-	bottom: 35%;
+	bottom: 40%;
 	right: 15%;
 	border: #df7861 dashed 3px;
     padding: 20px;
@@ -32,7 +32,8 @@
 
 .credits {
 	position: absolute;
-	right: 10px;
+	max-width: 400px;
+	left: 10px;
 	bottom: 10px;
 }
 
