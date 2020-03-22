@@ -1,7 +1,7 @@
 .footer {
 	overflow: auto;
 	clear: both;
-	height: 600px;
+	height: 650px;
 	background-color: #fcf8e8;
 	position: relative;
 }
@@ -23,18 +23,21 @@
 	height: 200px;
 	width: 250px;
 	position: absolute;
-	bottom: 30%;
+	bottom: 35%;
 	right: 15%;
 	border: #df7861 dashed 3px;
     padding: 20px;
     text-align: center;
 }
 
+.credits {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
 @media (max-width: 768px) {
   .right {
 	border: 0;
-  }
-  .card {
-  	right: 25%;
   }
 }

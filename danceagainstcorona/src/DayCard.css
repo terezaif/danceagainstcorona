@@ -37,7 +37,14 @@
 @media (max-width: 768px) {
   .dance-class-cards {
     width: 100%;
-    padding: 0;
+    padding: 0 0 50px 0;
     border: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .h2 {
+	font-size: 100px;
+	line-height: 90px;
   }
 }

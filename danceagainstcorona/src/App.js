@@ -18,12 +18,13 @@ class App extends Component {
   componentDidMount() {
     document.title = 'danceagainstcorona';
     fetch('https://dancebackend.herokuapp.com/v1/all_classes')
-      .then(response => response.json())
+      .then(res => res.json())
+      .then(res => res.events.sort((a,b) => new Date(a.date) - new Date(b.date)))
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            events: result.events
+            events: result
           });
         },
         // Note: it's important to handle errors here
@@ -169,7 +170,9 @@ class App extends Component {
             }
           ]
         };
-        //const events = classDataByDay.events; */
+        */
+
+    // const events = classDataByDay.events;
     const { error, isLoaded, events } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
