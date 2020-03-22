@@ -1,0 +1,10 @@
+.loader {
+	height: 300px;
+	background-color: #fcf8e8;
+	text-align: center;
+}
+
+.loader-text{
+	line-height: 300px;
+	margin: 0;
+}
