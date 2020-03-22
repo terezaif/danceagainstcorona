@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 import requests
 import datetime
@@ -5,6 +7,7 @@ from dateutil.relativedelta import relativedelta
 
 app = Flask("danceagainstcorona")
 
+BEARER = os.environ.get('BEARER','add BEARER=... in your .env')
 
 def classes_query(start, end):
     """
@@ -21,19 +24,34 @@ def classes_query(start, end):
     url = "{}?{}&{}&{}".format(base_url, fields, sort, filter)
     return url
 
-def get_artist(id):
+def get_artists(artists_per_class):
     """
-    get Artists internal info
-    :param id: str
+    get Artists internal info for the class
+    :param artists_per_class: list of artist performing the class
     :return:
     """
-    pass
+    languages = []
+    artists = []
+    headers = {"Authorization": 'Bearer {}'.format(BEARER)}
+    for a in artists_per_class:
+        art = requests.get("https://api.airtable.com/v0/appCVm3JIzNrEHoYA/Artist/{}".format(a),
+                                      headers=headers).json()
+        artists.append(
+            {
+            "name": art["fields"]["Name"],
+            "instagram": art["fields"]["Instagram"]
+            })
+        languages.append(art["fields"]["Language"])
+    return artists, list(set(languages))
 
 
-def clean_item(item):
+
+def clean_item(item, artist, languages):
     """
     Leave only needed fields from the respsonse
     :param item: raw json item
+    :param artist: dict artist info
+    :param languages: str language
     :return: dict
     """
     return {
@@ -41,8 +59,8 @@ def clean_item(item):
         "danceStyle": item["fields"]["Name"],
         "duration": item["fields"]["Duration"],
         "dateTime": item["fields"]["DateTime(GMT)"],
-        "artists": [item["fields"]["Artist"]],
-        "language": "wip"
+        "artists": artist,
+        "language": languages
     }
 
 @app.route('/')
@@ -56,13 +74,18 @@ def get_all_classes():
     :return: JsonResponse
     """
     now = datetime.datetime.today().date()
-    headers = {"Authorization": 'Bearer keyObNSCXx5PgfhKl'}  # TODO: regenerate API key and add to .env and cicd variables
+    headers = {"Authorization": 'Bearer {}'.format(BEARER)}  # TODO: regenerate API key and add to .env and cicd variables
     resp = {"events":[]}
     try:
         for i in range(0, 3):
-            raw = requests.get(classes_query(i, i+1), headers=headers).json()['records']
-            resp["events"].append({"date": (now + relativedelta(days=i)).isoformat(),
-                                   "classes": [clean_item(item) for item in raw]})
+            # get classes
+            classes_raw = requests.get(classes_query(i, i+1), headers=headers).json()['records']
+            # get artists
+            for c in classes_raw:
+                if len(c) > 0:
+                    ar, lan = get_artists(c['fields']['Artist'])
+                    resp["events"].append({"date": (now + relativedelta(days=i)).isoformat(),
+                                           "classes": [clean_item(item, ar, lan) for item in classes_raw]})
     except Exception as ex:
         print(f'No records were collected due to {ex}')
     return jsonify(resp)
