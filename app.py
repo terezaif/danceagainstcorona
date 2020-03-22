@@ -58,6 +58,7 @@ def clean_item(item, artist, languages):
     :param languages: str language
     :return: dict
     """
+    print(f"{item} and {artist} and {languages}")
     return {
         "id": item["id"],
         "danceStyle": item["fields"]["Name"],
@@ -78,21 +79,21 @@ def get_data(now):
     :return:
     """
     resp = {"events":[]}
-    dates = []  # deduplication structure
     try:
         for i in range(0, 3):
             # get classes
             classes_raw = requests.get(classes_query(i, i+1), headers=HEADERS).json()['records']
+            d = (now + relativedelta(days=i)).isoformat()
             # get artists
+            artists_per_class = {}
             for c in classes_raw:
+                artists_per_class[c["id"]] = []
                 if len(c) > 0:
                     ar, lan = get_artists(c['fields']['Artist'])
-                    d = (now + relativedelta(days=i)).isoformat()
-                    if d not in dates:
-                        dates.append(d)
-                        resp["events"].append({"date":d,
-                                               "classes": sorted([clean_item(item, ar, lan) for item in classes_raw],
-                                                                 key=lambda x: x['dateTime'])})
+                    artists_per_class[c["id"]] = (ar, lan)
+            data = [clean_item(item, artists_per_class[item["id"]][0], artists_per_class[item["id"]][1]) for item in classes_raw]
+            resp["events"].append({"date":d,
+                                   "classes": sorted(data, key=lambda x: x['dateTime'])})
     except Exception as ex:
         print(f'No records were collected due to {ex}')
     return resp
