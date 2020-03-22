@@ -42,6 +42,7 @@ def get_artists(artists_per_class):
     return artists, list(set(languages))
 
 
+
 def clean_item(item, artist, languages):
     """
     Leave only needed fields from the respsonse
