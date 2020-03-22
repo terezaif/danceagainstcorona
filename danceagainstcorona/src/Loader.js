@@ -5,7 +5,7 @@ import './Loader.css';
 function Loader() {
 	return (
 		<div className="loader">
-			<p className="loader-text">Preparing your dance schedule for you... &#x231b;</p>
+			<p className="loader-text">Preparing your dance schedule for you... <span role="img" aria-label="hourglass emoji">&#x231b;</span></p>
 		</div>
 	);
 }

@@ -16,7 +16,7 @@ class DayCard extends Component {
 					<h2 className="day-text">{dayOfWeek}</h2>
 				</div>
 				<div className="dance-class-cards">
-					{this.props.classes.map(danceClass => <DanceClassCard {...danceClass} /> )}
+					{this.props.classes.map(danceClass => <DanceClassCard key={danceClass.id} {...danceClass} /> )}
 				</div>
 			</div>
 		);

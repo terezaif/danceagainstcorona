@@ -36,6 +36,10 @@
 	bottom: 10px;
 }
 
+h4 {
+	margin-top: 10px;
+}
+
 @media (max-width: 768px) {
   .right {
 	border: 0;
