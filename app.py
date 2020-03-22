@@ -14,18 +14,22 @@ HEADERS = {"Authorization": 'Bearer {}'.format(BEARER)}
 
 
 
-def classes_query(start, end):
+def classes_query(start, end, active=False):
     """
     Collecting classes for time frame from n
     :param start: define "now"
     :param end: define future
+    :param active: bool if we want to fetch currently running classes
     :return:
     """
     base_url = "https://api.airtable.com/v0/appCVm3JIzNrEHoYA/Schedule"
     fields = "fields=DateTime(GMT)&fields=Name&fields=Duration&fields=Artist"
     sort = "sortfield=DateTime(GMT)&sortdirection=asc"
     filter_before = "IS_BEFORE({{DateTime(GMT)}}, DATEADD(NOW(), {0}, 'days'))".format(end)
-    filter = "filterByFormula=AND(IS_AFTER({{DateTime(GMT)}}, DATEADD(NOW(), {1}, 'days')), {0})".format(filter_before, start)
+    filter_after = "IS_AFTER({{DateTime(GMT)}}, DATEADD(NOW(), {0}, 'days'))".format(start)
+    if active:
+        filter_after = "IS_AFTER({{DateTime(GMT)}}, DATEADD(DATEADD(NOW(), -30, 'minutes'), {0}, 'days'))".format(start)
+    filter = "filterByFormula=AND({0}, {1})".format(filter_before, filter_after)
     url = "{}?{}&{}&{}".format(base_url, fields, sort, filter)
     return url
 
@@ -58,7 +62,6 @@ def clean_item(item, artist, languages):
     :param languages: str language
     :return: dict
     """
-    print(f"{item} and {artist} and {languages}")
     return {
         "id": item["id"],
         "danceStyle": item["fields"]["Name"],
@@ -81,8 +84,11 @@ def get_data(now):
     resp = {"events":[]}
     try:
         for i in range(0, 3):
-            # get classes
-            classes_raw = requests.get(classes_query(i, i+1), headers=HEADERS).json()['records']
+            # we fetch currently running classes as well
+            if i == 0:
+                classes_raw = requests.get(classes_query(i, i+1, active=True), headers=HEADERS).json()['records']
+            else:
+                classes_raw = requests.get(classes_query(i, i+1), headers=HEADERS).json()['records']
             d = (now + relativedelta(days=i)).isoformat()
             # get artists
             artists_per_class = {}
