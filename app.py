@@ -25,8 +25,8 @@ def classes_query(start, end, active=False):
     base_url = "https://api.airtable.com/v0/appCVm3JIzNrEHoYA/Schedule"
     fields = "fields=DateTime(GMT)&fields=Name&fields=Duration&fields=Artist"
     sort = "sortfield=DateTime(GMT)&sortdirection=asc"
-    filter_before = "IS_BEFORE({{DateTime(GMT)}}, DATEADD(NOW(), {0}, 'days'))".format(end)
-    filter_after = "IS_AFTER({{DateTime(GMT)}}, DATEADD(NOW(), {0}, 'days'))".format(start)
+    filter_before = "IS_BEFORE({{DateTime(GMT)}}, DATEADD(TODAY(), {0}, 'days'))".format(end)
+    filter_after = "IS_AFTER({{DateTime(GMT)}}, DATEADD(TODAY(), {0}, 'days'))".format(start)
     if active:
         filter_after = "IS_AFTER({{DateTime(GMT)}}, DATEADD(DATEADD(NOW(), -30, 'minutes'), {0}, 'days'))".format(start)
     filter = "filterByFormula=AND({0}, {1})".format(filter_before, filter_after)
