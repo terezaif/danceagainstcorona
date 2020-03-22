@@ -43,8 +43,9 @@
 }
 
 @media (max-width: 768px) {
-  .h2 {
-	font-size: 100px;
-	line-height: 90px;
+  .day-text {
+	font-size: 110px;
+	line-height: 100px;
+	width: 80%;
   }
 }

@@ -13,7 +13,7 @@ class DayCard extends Component {
 		return (
 			<div className="daycard">
 				<div className="day-widget">
-					<h2>{dayOfWeek}</h2>
+					<h2 className="day-text">{dayOfWeek}</h2>
 				</div>
 				<div className="dance-class-cards">
 					{this.props.classes.map(danceClass => <DanceClassCard {...danceClass} /> )}
