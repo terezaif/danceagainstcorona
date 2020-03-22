@@ -1,4 +1,7 @@
 .header {
+  background-image: url(./lisalone.svg);
+  background-repeat: repeat;
+  background-size: 120px;
 	height: 700px;
 	background-color: #fcf8e8;
 	overflow: hidden;
