@@ -1,11 +1,13 @@
 import os
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 import requests
 import datetime
 from dateutil.relativedelta import relativedelta
 
 app = Flask("danceagainstcorona")
+CORS(app)
 
 BEARER = os.environ.get('BEARER','add BEARER=... in your .env')
 
