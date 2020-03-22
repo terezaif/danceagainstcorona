@@ -18,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     document.title = 'danceagainstcorona';
     fetch('https://dancebackend.herokuapp.com/v1/all_classes')
-      .then(response => response.json)
+      .then(response => response.json())
       .then(
         (result) => {
           this.setState({
@@ -38,138 +38,138 @@ class App extends Component {
       )
   }
   render() {
-    const classDataByDay = {
-      events: [
-        {
-          date: "2020-03-21",
-          classes: [
+    /*     const classDataByDay = {
+          events: [
             {
-              id: "rec9jwOhOPm0SVBtq",
-              danceStyle: "DanceHall",
-              duration: "1 hour",
-              artists: [
+              date: "2020-03-21",
+              classes: [
                 {
-                  name: "LadyLis",
-                  instagram: "@ladylis_dhclasshh",
+                  id: "rec9jwOhOPm0SVBtq",
+                  danceStyle: "DanceHall",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T17:00:00.000Z",
+                  language: "DE / EN",
                 },
-              ],
-              dateTime: "2020-03-21T17:00:00.000Z",
-              language: "DE / EN",
+                {
+                  id: "abc",
+                  danceStyle: "SOCA",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Miss TK",
+                      instagram: "@miss_tk",
+                    },
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T18:00:00.000Z",
+                  language: "DE / EN",
+                },
+                {
+                  id: "bc",
+                  danceStyle: "K-Pop",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Zoe",
+                      instagram: "@satan_channn",
+                    },
+                  ],
+                  dateTime: "2020-03-21T13:00:00.000Z",
+                  language: "DE",
+                },
+              ]
             },
             {
-              id: "abc",
-              danceStyle: "SOCA",
-              duration: "1 hour",
-              artists: [
+              date: "2020-03-22",
+              classes: [
                 {
-                  name: "Miss TK",
-                  instagram: "@miss_tk",
+                  id: "rec9jwOhOPm0SVBtq",
+                  danceStyle: "DanceHall",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T17:00:00.000Z",
+                  language: "DE / EN",
                 },
                 {
-                  name: "LadyLis",
-                  instagram: "@ladylis_dhclasshh",
+                  id: "abc",
+                  danceStyle: "SOCA",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Miss TK",
+                      instagram: "@miss_tk",
+                    },
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T18:00:00.000Z",
+                  language: "DE / EN",
                 },
-              ],
-              dateTime: "2020-03-21T18:00:00.000Z",
-              language: "DE / EN",
+                {
+                  id: "bc",
+                  danceStyle: "K-Pop",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Zoe",
+                      instagram: "@satan_channn",
+                    },
+                  ],
+                  dateTime: "2020-03-21T13:00:00.000Z",
+                  language: "DE",
+                },
+              ]
             },
             {
-              id: "bc",
-              danceStyle: "K-Pop",
-              duration: "1 hour",
-              artists: [
+              date: "2020-03-23",
+              classes: [
                 {
-                  name: "Zoe",
-                  instagram: "@satan_channn",
+                  id: "rec9jwOhOPm0SVBtq",
+                  danceStyle: "DanceHall",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "LadyLis",
+                      instagram: "@ladylis_dhclasshh",
+                    },
+                  ],
+                  dateTime: "2020-03-21T17:00:00.000Z",
+                  language: "DE / EN",
                 },
-              ],
-              dateTime: "2020-03-21T13:00:00.000Z",
-              language: "DE",
-            },
+                {
+                  id: "bc",
+                  danceStyle: "K-Pop",
+                  duration: "1 hour",
+                  artists: [
+                    {
+                      name: "Zoe",
+                      instagram: "@satan_channn",
+                    },
+                  ],
+                  dateTime: "2020-03-21T13:00:00.000Z",
+                  language: "DE",
+                },
+              ]
+            }
           ]
-        },
-        {
-          date: "2020-03-22",
-          classes: [
-            {
-              id: "rec9jwOhOPm0SVBtq",
-              danceStyle: "DanceHall",
-              duration: "1 hour",
-              artists: [
-                {
-                  name: "LadyLis",
-                  instagram: "@ladylis_dhclasshh",
-                },
-              ],
-              dateTime: "2020-03-21T17:00:00.000Z",
-              language: "DE / EN",
-            },
-            {
-              id: "abc",
-              danceStyle: "SOCA",
-              duration: "1 hour",
-              artists: [
-                {
-                  name: "Miss TK",
-                  instagram: "@miss_tk",
-                },
-                {
-                  name: "LadyLis",
-                  instagram: "@ladylis_dhclasshh",
-                },
-              ],
-              dateTime: "2020-03-21T18:00:00.000Z",
-              language: "DE / EN",
-            },
-            {
-              id: "bc",
-              danceStyle: "K-Pop",
-              duration: "1 hour",
-              artists: [
-                {
-                  name: "Zoe",
-                  instagram: "@satan_channn",
-                },
-              ],
-              dateTime: "2020-03-21T13:00:00.000Z",
-              language: "DE",
-            },
-          ]
-        },
-        {
-          date: "2020-03-23",
-          classes: [
-            {
-              id: "rec9jwOhOPm0SVBtq",
-              danceStyle: "DanceHall",
-              duration: "1 hour",
-              artists: [
-                {
-                  name: "LadyLis",
-                  instagram: "@ladylis_dhclasshh",
-                },
-              ],
-              dateTime: "2020-03-21T17:00:00.000Z",
-              language: "DE / EN",
-            },
-            {
-              id: "bc",
-              danceStyle: "K-Pop",
-              duration: "1 hour",
-              artists: [
-                {
-                  name: "Zoe",
-                  instagram: "@satan_channn",
-                },
-              ],
-              dateTime: "2020-03-21T13:00:00.000Z",
-              language: "DE",
-            },
-          ]
-        }
-      ]
-    };
-    //const events = classDataByDay.events;
+        };
+        //const events = classDataByDay.events; */
     const { error, isLoaded, events } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
