@@ -17,4 +17,3 @@ yarn start
 `source env/bin/activate` to active the environment
 `heroku local` to run locally using the vars
 
-
