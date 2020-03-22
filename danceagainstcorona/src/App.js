@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header.js';
 import DayCard from './DayCard.js';
+import Footer from './Footer.js';
 
 import './typography.css';
 import './App.css';
@@ -145,8 +146,9 @@ class App extends Component {
 
     return (
       <div>
-        <div><Header /></div>
+        <Header />
         {events.map(dayData => <DayCard {...dayData} /> )}
+        <Footer />
       </div>
     );
   }

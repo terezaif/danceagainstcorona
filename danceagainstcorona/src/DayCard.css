@@ -17,9 +17,8 @@
 	width: 59%;
 	display: inline-block;
     padding: 5% 0;
-    border-left: 1px dashed;
+    border-left: 2px dashed #204051;
 }
-
 
 .day-widget {
 	float: left;
@@ -39,5 +38,6 @@
   .dance-class-cards {
     width: 100%;
     padding: 0;
+    border: 0;
   }
 }

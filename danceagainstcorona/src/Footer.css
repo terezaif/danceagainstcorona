@@ -1,0 +1,40 @@
+.footer {
+	overflow: auto;
+	clear: both;
+	height: 600px;
+	background-color: #fcf8e8;
+	position: relative;
+}
+
+.left {
+	float: left;
+	width: 40%;
+	height: 100%;
+}
+
+.right {
+	float: right;
+	width: 59%;
+	border-left: 2px dashed #df7861;
+	height: 100%;
+}
+
+.card {
+	height: 200px;
+	width: 250px;
+	position: absolute;
+	bottom: 30%;
+	right: 15%;
+	border: #df7861 dashed 3px;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+  .right {
+	border: 0;
+  }
+  .card {
+  	right: 25%;
+  }
+}
