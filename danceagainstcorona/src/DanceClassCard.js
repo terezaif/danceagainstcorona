@@ -14,7 +14,7 @@ class DanceClassCard extends Component {
 		const minutePrefix = minutes > 10 ? '' : '0';
 		const timeString = `${happeningAt.getHours()}:${minutePrefix}${minutes}`;
 		const igHandles = artists
-			.map(artist => <a href={"https://www.instagram.com/" + artist.instagram.substring(1) +"/"}>{artist.instagram}</a>)
+			.map(artist => <a target="_blank" key={artist.name} rel="noopener noreferrer" href={"https://www.instagram.com/" + artist.instagram.substring(1) +"/"}>{artist.instagram}</a>)
 			.reduce((prev, curr) => [prev, ', ', curr]);
 
 		return (
