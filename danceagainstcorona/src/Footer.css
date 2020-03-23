@@ -41,8 +41,21 @@ h4 {
 	margin-top: 10px;
 }
 
+span {
+	font-size: 10px;
+  	vertical-align: middle;
+  	line-height: 2;
+}
+
 @media (max-width: 768px) {
   .right {
 	border: 0;
+  }
+
+  .card {
+  	position: absolute;
+  	right: 50%;
+  	-ms-transform: translateX(+50%);
+    transform: translateX(+50%);
   }
 }

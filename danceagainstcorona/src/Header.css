@@ -8,25 +8,44 @@
 	position: relative;
 }
 
-.textwrap {
+.titlewrap {
 	position: absolute;
-    top: 18%;
-    left: 15%;
-    padding: 45px;
-    text-align: center;
-    background: #fcf8e8;
-	border: 5px #ecb390 solid;
+  top: 18%;
+  left: 15%;
+  padding: 45px;
+  text-align: center;
+  background: #fcf8e8;
+  border: 5px #ecb390 solid;
+}
+
+.formwrap {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  background: #fcf8e8;
+  border: #ecb390 dashed 3px;
+  padding: 0 15px;
 }
 
 img {
-	height: 120px;
-	display: inline;
-	margin: -10px;
+  height: 120px;
+  display: inline;
+  margin: -10px;
 }
 
 @media (max-width: 768px) {
-  .textwrap {
-	padding: 30px;
+  .header {
+    height: 600px;
+  }
+  .titlewrap {
+    padding: 30px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .formwrap{
+    margin: 0 10px 25px 10px;
   }
   h1 {
   	font-size: 50px !important;
