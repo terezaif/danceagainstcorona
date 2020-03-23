@@ -55,6 +55,7 @@ span {
   .card {
   	position: absolute;
   	right: 50%;
+  	bottom: 45%;
   	-ms-transform: translateX(+50%);
     transform: translateX(+50%);
   }
