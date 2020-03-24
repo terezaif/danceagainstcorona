@@ -46,7 +46,7 @@
 	letter-spacing: 2px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 375px) {
 	.time-widget {
 		height: 60px;
 		width: 60px;
