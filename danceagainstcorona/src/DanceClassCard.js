@@ -24,9 +24,7 @@ class DanceClassCard extends Component {
 				</div>
 				<div className="description">
 					<div className="dance-style">{danceClass.danceStyle}</div>
-					<div>with {igHandles}</div>
-					<div>in {danceClass.language}</div>
-					<div>for {danceClass.duration}</div>
+					<div>with {igHandles} in {danceClass.language}</div>
 				</div>
 			</div>
 		);
