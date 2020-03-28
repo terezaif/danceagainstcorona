@@ -33,29 +33,3 @@
 	padding-bottom: 8px;
 	letter-spacing: 2px;
 }
-
-@media (max-width: 375px) {
-	.time-widget {
-		height: 60px;
-		width: 60px;
-		margin: 0;
-		display: inline-block;
-		float: left;
-	}
-	.description {
-		margin: 0 30px 0 0;
-		width: 230px;
-		float: right;
-	}
-	.time-text {
-		line-height: 60px;
-	}
-	.dance-class-card {
-		clear: both;
-		overflow: auto;
-		margin-bottom: 45px;
-	}
-	.dance-style {
-		margin-top: 0;
-	}
-}
