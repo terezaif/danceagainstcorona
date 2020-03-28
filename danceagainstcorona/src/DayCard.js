@@ -7,15 +7,26 @@ import './DayCard.css';
 class DayCard extends Component {
 	constructor(props){
 		super(props);
+		this.state = { windowWidth: window.innerWidth };
 
 		this.daysOfWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 		this.date = new Date(this.props.date);
 		this.dayOfWeek = this.daysOfWeek[this.date.getDay()];
 
 		this.igDayCardID = `ig-day-card-${this.dayOfWeek}`;
-
-		this.windowWidth = window.innerWidth;
 	}
+
+	componentDidMount() {
+		window.addEventListener('resize', this.updateWindowWidth);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowWidth);
+	}
+
+	updateWindowWidth = () => {
+	    this.setState({ windowWidth: window.innerWidth });
+	};
 
 	render() {
 		return (
@@ -23,7 +34,7 @@ class DayCard extends Component {
 				<div className="day-widget">
 					<h2 className="day-text">{ this.dayOfWeek }</h2>
 				</div>
-				{ window.innerWidth > 375
+				{ this.state.windowWidth > 375
 					? <div className="dance-class-cards">
 						{this.props.classes.map(danceClass => <DanceClassCard key={danceClass.id} {...danceClass} /> )}
 					</div>
