@@ -18,12 +18,11 @@ class IgDayCard extends Component {
 			.reduce((prev, curr) => [prev, ', ', curr]);
 
 		return (
-			<div>
+			<div className="ig-dance-class">
 				<span className="ig-time-widget">
 					<span className="ig-time-text">{timeString}</span>
 				</span>
-				<p className="ig-dance-style">{danceClass.danceStyle}&nbsp;</p>
-				<p className="ig-more-info">with {igHandles}</p>
+				<p className="ig-more-info"><span className="ig-dance-style">{danceClass.danceStyle}</span> with {igHandles}</p>
 			</div>
 		);
 	}

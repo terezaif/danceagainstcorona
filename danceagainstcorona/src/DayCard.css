@@ -55,4 +55,7 @@
 	.day-widget {
 		display: none;
 	}
+	.daycard {
+		min-height: 0;
+	}
 }

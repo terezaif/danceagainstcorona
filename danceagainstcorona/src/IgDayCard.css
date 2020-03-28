@@ -1,7 +1,10 @@
+.ig-dance-class {
+	margin: 18px 0;
+}
 .ig-time-widget {
 	display: inline-block;
 	background-color: #204051;
-	height: 20px;
+	height: 22px;
 	width: 60px;
     border-radius: 3px;
     text-align: center;
@@ -12,16 +15,17 @@
 .ig-time-text {
 	font-weight: bold;
 	color: #fcf8e8;
+	line-height: 22px;
 	letter-spacing: 0.5px;
 }
 
 .ig-dance-style {
 	font-weight: bold;
 	display: inline-block;
-	margin-bottom: 5px;
 }
 
 .ig-more-info {
-	display: inline-block;
+	display: inline;
 	margin-top: 0px;
+	line-height: 22px;
 }
