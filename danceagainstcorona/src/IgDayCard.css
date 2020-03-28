@@ -1,0 +1,27 @@
+.ig-time-widget {
+	display: inline-block;
+	background-color: #204051;
+	height: 20px;
+	width: 60px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.ig-time-text {
+	font-weight: bold;
+	color: #fcf8e8;
+	letter-spacing: 0.5px;
+}
+
+.ig-dance-style {
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.ig-more-info {
+	display: inline-block;
+	margin-top: 0px;
+}

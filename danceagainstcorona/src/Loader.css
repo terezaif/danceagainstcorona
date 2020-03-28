@@ -19,7 +19,7 @@
   .loader {
   	height: 200px;
   }
-  span {
+  .loader span {
 	font-size: 10px;
   	vertical-align: middle;
   	line-height: 2;

@@ -2,6 +2,7 @@
 	min-height: 400px;
 	overflow: auto;
 	background-color: #df7861;
+	position: relative;
 }
 
 .daycard:nth-child(2) {
@@ -27,24 +28,31 @@
 	padding: 15% 0;
 }
 
+.ig-day-card {
+	width: 100%;
+	padding: 20px;
+	background: inherit;
+	box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
   .day-widget {
     width: 100%;
     padding: 5% 0;
   }
-}
-
-@media (max-width: 768px) {
   .dance-class-cards {
     width: 100%;
     border: 0;
   }
-}
-
-@media (max-width: 768px) {
   .day-text {
 	font-size: 110px;
 	line-height: 100px;
 	width: 80%;
   }
+}
+
+@media (max-width: 375px) {
+	.day-widget {
+		display: none;
+	}
 }

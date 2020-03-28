@@ -5,7 +5,6 @@ import Footer from './Footer.js';
 import Loader from './Loader.js';
 
 import './typography.css';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
