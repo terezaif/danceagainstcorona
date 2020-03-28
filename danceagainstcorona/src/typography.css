@@ -22,6 +22,19 @@ h2 {
     line-height: 130px;
 }
 
+h3 {
+	font-family: Helvetica Neue;
+	word-wrap: break-word;
+    text-transform: uppercase;
+    font-size: 50px;
+    width: 150px;
+    color: transparent;
+    -webkit-text-stroke: 2px #204051;
+	text-stroke: 2px #204051;
+    line-height: 50px;
+    margin: 0px 0px 10px 0px;
+}
+
 h4 {
 	letter-spacing: 1px;
 	text-transform: uppercase;
