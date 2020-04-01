@@ -5,8 +5,9 @@ WORKDIR /usr/src/app
 COPY fast_requirements.txt .
 RUN pip install --no-cache-dir -r fast_requirements.txt
 
-COPY main.py .
+COPY main.py ./
+COPY .env ./
 
-EXPOSE 5000
+EXPOSE 8000
 
 CMD ["uvicorn", "main:app"]
