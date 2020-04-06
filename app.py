@@ -23,7 +23,7 @@ def classes_query(start, end, active=False):
     :return:
     """
     base_url = "https://api.airtable.com/v0/appCVm3JIzNrEHoYA/Schedule"
-    fields = "fields=DateTime(GMT)&fields=Name&fields=Duration&fields=Artist"
+    fields = "fields=DateTime(GMT)&fields=Name&fields=Artist"
     sort = "sortfield=DateTime(GMT)&sortdirection=asc"
     filter_before = "IS_BEFORE({{DateTime(GMT)}}, DATEADD(TODAY(), {0}, 'days'))".format(end)
     filter_after = "IS_AFTER({{DateTime(GMT)}}, DATEADD(TODAY(), {0}, 'days'))".format(start)
@@ -46,7 +46,6 @@ def get_artists(artists_per_class):
                                       headers=HEADERS).json()
         artists.append(
             {
-            "name": art["fields"]["Name"],
             "instagram": art["fields"]["Instagram"]
             })
         languages.append(art["fields"]["Language"])
@@ -65,7 +64,6 @@ def clean_item(item, artist, languages):
     return {
         "id": item["id"],
         "danceStyle": item["fields"]["Name"],
-        "duration": item["fields"]["Duration"],
         "dateTime": item["fields"]["DateTime(GMT)"],
         "artists": artist,
         "language": languages
